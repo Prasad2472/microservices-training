@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: trade-service
+    
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.value}
+ 
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-primary:5001/eureka
+        
+server:
+  port: 0
+  
+pivotal:
+    tradeservice:
+    name: trade-service
+    registerservice:
+     name: register-service
+    
