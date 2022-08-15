@@ -42,4 +42,18 @@ public class ServiceRegistrationServer {
   }
 }
 
-- By default Spring Boot applications look for an **application.propertie**s or **application.yml** file for configuration. By setting the **spring.config.name** property we can tell Spring Boot to look for a different file 
+- By default Spring Boot applications look for an **application.propertie**s or **application.yml** file for configuration. By setting the **spring.config.name** property we can tell Spring Boot to look for a different file.
+
+# Configure this Discovery Server
+eureka:
+  instance:
+    hostname: localhost
+  client:  # Not a client, don't register with yourself (unless running
+           # multiple discovery servers for redundancy)
+    registerWithEureka: false
+    fetchRegistry: false
+
+server:
+  port: 1111   # HTTP (Tomcat) port
+  
+ - By default Eureka runs on port 8761, but here we will use port 1111 instead
